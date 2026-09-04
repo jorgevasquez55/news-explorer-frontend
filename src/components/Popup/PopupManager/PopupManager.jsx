@@ -1,0 +1,23 @@
+import { useContext } from "react";
+import { PopupContext } from "../../../contexts/PopupContext";
+import { PopupWithForm } from "./components/PopupWithForm/PopupWithForm";
+import { PopupConfirmation } from "./components/PopupConfirmation/PopupConfirmation";
+import { CurrentUserContext } from "../../../contexts/CurrentUserContext";
+
+export function PopupManager() {
+  const { popup, onOpenPopup } = useContext(PopupContext);
+  const { onRemoveArticle } = useContext(CurrentUserContext);
+
+  const popupComponents = {
+    signin: <PopupWithForm popup={popup.type} onOpenPopup={onOpenPopup} />,
+    signup: <PopupWithForm popup={popup.type} onOpenPopup={onOpenPopup} />,
+    confirmation: (
+      <PopupConfirmation
+        article={popup.savedArticle}
+        onRemoveArticle={onRemoveArticle}
+      />
+    ),
+  };
+
+  return popupComponents[popup.type];
+}
