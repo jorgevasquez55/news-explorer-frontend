@@ -1,24 +1,12 @@
-import {
-  NEWS_API_BASE_URL,
-  NEWS_API_KEY,
-  NEWS_LANGUAGE,
-  NEWS_PAGE_SIZE,
-  NEWS_SEARCH_DAYS_RANGE,
-} from "./config";
+import { MAIN_API_BASE_URL } from "./config";
 
-const MS_PER_DAY = 86400000;
-
+// La búsqueda de noticias pasa por nuestro propio backend, que actúa como
+// proxy hacia NewsAPI. Esto evita la restricción del plan gratuito de
+// NewsAPI, que solo permite llamadas directas desde localhost.
 export function getNews(keyword) {
-  const dateFrom = new Date(
-    Date.now() - NEWS_SEARCH_DAYS_RANGE * MS_PER_DAY
-  ).toISOString();
-  const dateNow = new Date().toISOString();
-
-  const url = `${NEWS_API_BASE_URL}?q=${encodeURIComponent(
-    keyword
-  )}&from=${dateFrom}&to=${dateNow}&sortBy=relevancy&language=${NEWS_LANGUAGE}&pageSize=${NEWS_PAGE_SIZE}&apiKey=${NEWS_API_KEY}`;
-
-  return fetch(url).then((res) =>
+  return fetch(
+    `${MAIN_API_BASE_URL}/news?q=${encodeURIComponent(keyword)}`
+  ).then((res) =>
     res.ok ? res.json() : Promise.reject(`Error: ${res.status}`)
   );
 }

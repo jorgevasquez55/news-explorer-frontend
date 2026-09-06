@@ -69,7 +69,7 @@ export function NavBar(props) {
             className={({ isActive }) => getLinkClass(isActive)}
             replace
           >
-            Início
+            Inicio
           </NavLink>
         </li>
 
@@ -81,7 +81,7 @@ export function NavBar(props) {
               className={({ isActive }) => getLinkClass(isActive)}
               replace
             >
-              Artigos salvos
+              Artículos guardados
             </NavLink>
           </li>
         )}
@@ -92,7 +92,7 @@ export function NavBar(props) {
             className={buttonClass}
           >
             {!isLoggedIn ? (
-              "Entre"
+              "Ingresar"
             ) : (
               <p className="navbar__username">
                 {userData.username.split(" ")[0]}
@@ -101,7 +101,7 @@ export function NavBar(props) {
             {isLoggedIn && (
               <img
                 src={isSavedNews ? logoutIconLight : logoutIconDark}
-                alt="Sair"
+                alt="Cerrar sesión"
                 className="navbar__logout-icon"
               />
             )}

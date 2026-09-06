@@ -11,7 +11,8 @@
   max-width: 464px;
   max-height: 464px;
   border-radius: 50%;
-  object-fit: cover;
+  background-color: #d0d0d0;
+  flex-shrink: 0;
 }
 
 .about__title {

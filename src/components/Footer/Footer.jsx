@@ -7,14 +7,14 @@ export function Footer() {
     <footer className="footer">
       <div className="footer__container">
         <p className="footer__copyright">
-          &#169; 2025 Supersite, desenvolvido pela News API
+          &#169; 2026 News Explorer, desarrollado con la API de NewsAPI
         </p>
         <div className="footer__columns">
           <div className="footer__column">
             <ul className="footer__list">
               <li className="footer__item-list">
                 <a href="/" className="footer__link">
-                  Início
+                  Inicio
                 </a>
               </li>
               <li className="footer__item-list">
@@ -32,7 +32,7 @@ export function Footer() {
             <ul className="footer__list footer__list_socials">
               <li className="footer__item-list footer__item-list_socials">
                 <a
-                  href="https://github.com/vinimello90"
+                  href="https://github.com/jorgevasquez55"
                   className="footer__link footer__link_social"
                   target="_blank"
                 >
@@ -41,7 +41,7 @@ export function Footer() {
               </li>
               <li className="footer__item-list">
                 <a
-                  href="https://www.linkedin.com/in/vinicius-barretto-mello/"
+                  href="https://www.linkedin.com/"
                   className="footer__link footer__link_social"
                   target="_blank"
                 >

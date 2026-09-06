@@ -19,10 +19,10 @@ export function SearchForm({ onSearchRequest }) {
 
   return (
     <section className="search">
-      <h2 className="search__title">O que está acontecendo no mundo?</h2>
+      <h2 className="search__title">¿Qué está pasando en el mundo?</h2>
       <p className="search__description">
-        Encontre as últimas notícias sobre qualquer tema e salve elas em sua
-        conta pessoal
+        Encuentra las últimas noticias sobre cualquier tema y guárdalas en tu
+        cuenta personal
       </p>
       <form
         onSubmit={handleSearchSubmit}
@@ -38,14 +38,14 @@ export function SearchForm({ onSearchRequest }) {
               onChange={handleInputChange}
               type="text"
               className="search__input"
-              placeholder="Inserir tema"
+              placeholder="Ingresa un tema"
               value={inputValue}
               spellCheck={false}
               required
             />
           </label>
           <button type="submit" className="search__form-button">
-            Procurar
+            Buscar
           </button>
         </fieldset>
       </form>
