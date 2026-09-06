@@ -1,114 +1,84 @@
 # NewsExplorer
 
-O projeto **NewsExplorer** foi um aplicativo web que desenvolvi para permitir que usuários pesquisassem notícias sobre qualquer tema e salvassem os artigos de interesse em suas contas. Criei um layout responsivo que se adaptava a diferentes tamanhos de tela por meio de **unidades de medida relativas** e **media queries**, ajustando o design conforme os pontos de interrupção para garantir uma aparência consistente.
+**NewsExplorer** es una aplicación web que desarrollé para permitir a los usuarios buscar noticias sobre cualquier tema y guardar los artículos de su interés en su cuenta personal. Construí un diseño responsivo, adaptado a distintos tamaños de pantalla mediante **unidades de medida relativas** y **media queries**, ajustando el diseño según los puntos de quiebre para mantener una apariencia consistente.
 
-Desenvolvi o projeto utilizando **React**, estruturando-o em componentes **JSX (JavaScript XML)**, com uma **API** de terceiros fornecendo as notícias, e uma **API** própria desenvolvida no backend para persistir os dados do usuário. Implementei também autenticação com **SimpleWebAuthn**, permitindo login e registro com **biometria** ou **chaves de segurança**, reforçando a segurança e melhorando a experiência do usuário.
+Desarrollé el proyecto con **React**, estructurado en componentes **JSX (JavaScript XML)**, con una **API** propia en el backend (Node.js + Express + MongoDB) que gestiona la autenticación de usuarios y persiste los artículos guardados, y un proxy hacia **NewsAPI** para obtener las noticias.
 
-**Confira o projeto em funcionamento clicando [aqui](https://newsexplorer.protechadvanced.com/).**
+**Puedes ver el proyecto en funcionamiento haciendo clic [aquí](https://news-jorge.abrdns.com/).**
 
-<p align='center'><img src="./src/images/screenshot_fullpage.png" alt="Captura de tela do projeto NewsExplorer" width='45%' /></p>
+> _Capturas de pantalla pendientes de actualizar con la versión desplegada._
 
-## Tecnologias e Metodologias
+## Tecnologías y metodologías
 
-- HTML5 semântico
-- Metodologia BEM
+- HTML5 semántico
+- Metodología BEM
 - Flexbox
 - Grid
 - Text-overflow
 - Hover
-- Pseudo-classe
+- Pseudo-clases
 - Unidades de medida relativas
 - Media queries
 - React JS
-- API
-- SimpleWebAuthn
+- API REST
 
-## Descrição das Tecnologias e Técnicas Utilizadas
+## Descripción de las tecnologías y técnicas utilizadas
 
-### HTML Semântico
+### HTML semántico
 
-Utilizei **HTML semântico** para tornar o código mais legível e acessível, facilitando a compreensão e a estruturação do conteúdo.
+Utilicé **HTML semántico** para que el código fuera más legible y accesible, facilitando la comprensión y estructuración del contenido.
 
-### Metodologia BEM
+### Metodología BEM
 
-Adotei a **metodologia BEM** para facilitar a manutenção e escalabilidade do código, tornando a estrutura de classes mais clara.
+Adopté la **metodología BEM** para facilitar el mantenimiento y la escalabilidad del código, dejando la estructura de clases más clara.
 
 ### Flexbox
 
-Apliquei `flexbox` em conjunto com **unidades de medida relativas** para organizar o layout e otimizar a responsividade, proporcionando uma boa experiência em diversos dispositivos.
+Apliqué `flexbox` junto con **unidades de medida relativas** para organizar el diseño y optimizar la responsividad, logrando una buena experiencia en distintos dispositivos.
 
-### Grid e Text-overflow
+### Grid y Text-overflow
 
-Usei `grid` para estruturar os cartões de notícias e apliquei `text-overflow: ellipsis`, `overflow: hidden`, `line-clamp` e `white-space: nowrap` para truncar títulos e descrições que ultrapassavam o espaço disponível.
+Usé `grid` para estructurar las tarjetas de noticias, y apliqué `text-overflow: ellipsis`, `overflow: hidden`, `line-clamp` y `white-space: nowrap` para truncar títulos y descripciones que superaban el espacio disponible.
 
-- Seção "News"
+### Pseudo-clases
 
-  <img src="./src/images/screenshot_news.png" alt="Captura de tela da seção News" />
+Implementé las **pseudo-clases** `:hover` y `:active` para mejorar la interactividad, cambiando el estilo de los elementos según el estado de interacción.
 
-### Pseudo-classes
+### Media queries
 
-Implementei as **pseudo-classes** `:hover` e `:active` para melhorar a interatividade, alterando o estilo dos elementos em diferentes estados de interação.
-
-<p align="center">
-<img src="./src/images/screenshot_pseudo.jpg" alt="Captura de tela mostrando pseudo-classes">
-</p>
-
-### Media Queries
-
-Configurei **media queries** para ajustar o layout em diferentes resoluções de tela, definindo pontos de interrupção específicos:
+Configuré **media queries** para ajustar el diseño en distintas resoluciones de pantalla, definiendo puntos de quiebre específicos:
 
 - 320-768px (540px)
 - 768-1280px (1024px)
-- 1280px ou superior
+- 1280px o superior
 
-<p align='center'><img src="./src/images/screenshot_screensizes.png" alt="Captura de tela do menu hamburguer fechado" width='100%'/>
-
-Incluí um botão hamburguer na barra de navegação para telas menores.
-
-<p align='center'><img src="./src/images/screenshot_burger_menu_closed.png" alt="Captura de tela do menu hamburguer fechado" width='30%'/> <img src="./src/images/screenshot_burger_menu_open.png" alt="Captura de tela do menu hamburguer aberto" width='30%'/></p>
+Incluí un botón de menú hamburguesa en la barra de navegación para pantallas más pequeñas.
 
 ### React JS
 
-Utilizei **React** com **JSX**, separando o código em componentes para melhor organização e reaproveitamento.
+Utilicé **React** con **JSX**, separando el código en componentes para una mejor organización y reutilización.
 
-- **Popup para login e cadastro** – Implementei o `onClick()` para manipular o estado das popups com `useState()`. Usei `useEffect()` para adicionar um ouvinte de evento `keydown` e permitir fechar a popup com a tecla "esc", e o removi com `removeEventListener()` ao desmontar. Utilizando `onChange()` e `onSubmit()` os dados são salvo em um banco de dados no cadastro, e autenticados ao fazer o login através da **API**.
+- **Popups de inicio de sesión y registro** – Implementé `onClick()` para manejar el estado de las ventanas emergentes con `useState()`. Usé `useEffect()` para agregar un listener del evento `keydown` y permitir cerrar la ventana con la tecla "Esc", eliminándolo con `removeEventListener()` al desmontar el componente. Con `onChange()` y `onSubmit()`, los datos se guardan en la base de datos al registrarse, y se autentican al iniciar sesión a través de la **API**.
 
-  <img src="./src/images/screenshot_signup.png" alt="Captura de tela do cadastro" width="49.4%"> <img src="./src/images/screenshot_signin.png" alt="Captura de tela do login" width="49.4%">
+- **Validación de formularios** – Instancié una clase dentro de `useEffect()` para validar los formularios, usando `useState()` para mejorar la **UX**. La clase deshabilita el botón de **submit** cuando hay campos inválidos, resaltando el campo y mostrando un mensaje de error. El botón solo se habilita con los datos correctos.
 
-- **Validação de formulário** – Instanciei uma classe dentro do `useEffect()` para validar os formulários, manipulando `useState()` para aprimorar a **UX**. A classe desabilitou o botão de **submit** quando havia entradas inválidas, realçando o campo e exibindo uma mensagem. O botão só será habilitado com os dados corretos.
+- **Formulario de búsqueda** – Creé un formulario que, con `onChange()` y `onSubmit()`, guarda la palabra clave para buscar artículos a través de la **API**, devolviendo una lista de noticias relevantes que se almacena en un estado para renderizarse, y también en **localStorage** para que, si el usuario sale de la página, los resultados sigan ahí al volver.
 
-  <img src="./src/images/screenshot__form_invalid.png" alt="Captura de tela do formulário inválido" width="49.4%"/> <img src="./src/images/screenshot__form_valid.png" alt="Captura de tela do formulário válido" width="49.4%"/>
+- **Preloader** – Implementé una animación de carga controlada por `useState()`, que se muestra durante la búsqueda y se reemplaza por los resultados al finalizar.
 
-- **Formulário de Busca** – Criei um formulário que, com `onChange()` e `onSubmit()`, armazena a palavra-chave para buscar artigos via **API**, retornando uma lista de notícias relevantes, que é armazeado em um estado para ser renderizado e armazenado no **localStorage** para caso o usuário saia da pagina ao voltar os resultados ainda estarem lá.
+- **Secciones news y saved-news** – Utilicé los componentes `<Routes>` y `<Route />` de **React Router**, junto con un **HOC (Higher-Order Component)** propio para proteger rutas, separando la ruta principal (que contiene la sección **news**) de la ruta **saved-news**, accesible solo para usuarios autenticados.<br><br>
+Para renderizar las tarjetas en la sección **news** usé el método `map()` dentro del componente, iterando sobre los datos recibidos y armando las tarjetas mediante `props`. Incluí botones para guardar artículos y para cargar más noticias de a poco (3 por vez), usando `.slice()` para limitar la lista según un estado controlado por `useState()`, que se incrementa con cada clic en el botón. El mismo componente se reutiliza para renderizar los artículos guardados en la sección **saved-news**.
 
-  <p align="center"><img src="./src/images/screenshot_search.png" alt="Captura de tela do formulário" width="100%"></p>
-
-- **Preloader** – Implementei uma animação de carregamento controlada por `useState()`, exibida durante a busca e substituída pelos resultados ao término.
-
-  <p align="center"><img src="./src/images/screenshot_preloader.png" alt="Captura de tela do preloader" width="100%"></p>
-
-- **Seção news e saved-news** – Foram utilizados os componentes `<BrowserRouter>`, `<Routes>` e `<Route />` do **React.js**, juntamente com um **HOC (Higher-Order Component)** desenvolvido para proteger as rotas, separando a rota principal, que contém a seção **news**, da rota **saved-news**, acessível apenas para usuários autorizados.<br><br>
-Para renderizar os cards na seção **news**, foi utilizado o método `map()` dentro do componente, iterando sobre os dados recebidos e montando os cartões com `props`. Foram incluídos botões para salvar artigos e para carregar mais notícias aos poucos (3 por vez), utilizando o método `.slice()` para limitar a lista de acordo com um estado controlado pelo `useState()`, que é incrementado a cada clique no botão.
-O mesmo componente é reutilizado para renderizar os artigos salvos na seção **saved-news**.
-
-  <p align="center"><img src="./src/images/screenshot_news.png" alt="Captura de tela da seção news" width="47.1%"> <img src="./src/images/screenshot_saved-news.png" alt="Captura de tela da seção saved-news" width="49%"></p>
-
-- **Cartões de erro e não encontrado** – Criei lógica para exibir mensagens alternativas caso não fossem encontrados artigos ou em caso de erro do servidor.
-
-  <p align="center"><img src="./src/images/screenshot_not_found.png" alt="Captura de tela da seção news com mensagem de artigo não encontrado" width="49%"> <img src="./src/images/screenshot_server_error.png" alt="Captura de tela da seção news com uma mensagem de erro do servidor" width="49%"></p>
+- **Tarjetas de error y "no encontrado"** – Implementé lógica para mostrar mensajes alternativos cuando no se encuentran artículos o cuando ocurre un error del servidor.
 
 ### API
 
-#### NewsAPI
+#### NewsAPI (vía proxy propio)
 
-Desenvolvi um módulo para consumir a **NewsAPI**, que retorna artigos com base em palavras-chave. Usei o método `fetch()` para fazer requisições **GET**, recebendo um **array** com os artigos mais relevantes.
+Desarrollé un módulo que consume mi propio backend, el cual a su vez hace de proxy hacia **NewsAPI** y devuelve artículos según una palabra clave. Uso el método `fetch()` para hacer solicitudes **GET**, recibiendo un **array** con los artículos más relevantes. El proxy evita exponer la API key en el navegador y evita la restricción de NewsAPI que solo permite llamadas directas desde localhost en el plan gratuito.
 
 #### MainApi
 
-Desenvolvi uma classe para consumir uma **API** própria, utilizando o método `fetch()` para realizar requisições **GET**, **POST** e **DELETE**. A classe permite realizar o **registro** e a **autenticação** de usuários, além de adicionar e remover artigos salvos pelos usuários.
+Desarrollé una clase para consumir mi propia **API**, usando `fetch()` para realizar solicitudes **GET**, **POST** y **DELETE**. La clase permite registrar y autenticar usuarios, además de agregar y eliminar artículos guardados.
 
-#### SimpleWebAuthn
-
-Implementei o módulo **SimpleWebAuthn** no front-end para realizar autenticação sem senha com **biometria** ou **chaves de segurança** usando WebAuthn. Utilizei os métodos `startAuthentication()` e `startRegistration()` para iniciar os fluxos de **login** e **registro** com autenticação forte baseada em hardware. A integração foi feita com suporte à **API de credenciais do navegador**, garantindo maior segurança.
-
-**Para mais informações do desenvolvimento do backend acesse clicando [aqui](https://github.com/Vinimello90/news-explorer-backend#readme).**
+**Para más información sobre el desarrollo del backend, entra [aquí](https://github.com/jorgevasquez55/news-explorer-backend#readme).**
