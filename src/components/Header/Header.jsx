@@ -13,11 +13,11 @@ export function Header({ onSearchRequest }) {
 
   return (
     <header className={`header${isSavedNews ? " header_saved-news" : ""}`}>
-      <header className="header__container">
+      <div className="header__container">
         <Navigation isSavedNews={isSavedNews} />
         {!isSavedNews && <SearchForm onSearchRequest={onSearchRequest} />}
         {isSavedNews && isLoggedIn && <SavedNewsHeader />}
-      </header>
+      </div>
     </header>
   );
 }
