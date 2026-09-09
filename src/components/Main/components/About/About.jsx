@@ -1,9 +1,10 @@
 import "./About.css";
+import photo from "../../../../images/profile.jpg";
 
 export function About() {
   return (
     <section className="about">
-      <div className="about__author-photo" aria-hidden="true"></div>
+      <img src={photo} alt="Foto de Jorge Vasquez" className="about__author-photo" />
       <div className="about__content">
         <h2 className="about__title">Sobre el autor</h2>
         <p className="about__description">

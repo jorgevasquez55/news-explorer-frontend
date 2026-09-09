@@ -41,7 +41,7 @@ export function Footer() {
               </li>
               <li className="footer__item-list">
                 <a
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/in/jorge-luis-jesus-vasquez-rodriguez-29560b172/"
                   className="footer__link footer__link_social"
                   target="_blank"
                 >
